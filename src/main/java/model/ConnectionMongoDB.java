@@ -24,6 +24,10 @@ public class ConnectionMongoDB
 
         MongoCollection<Document> collection = database.getCollection("movies");
 
+        //retourne le nombre de donnée dans notre collection
+        System.out.print(collection.count());
+
+        //retourne l'ensemble des movies sorties en 2015
         FindIterable<Document> iterable = collection.find(
                 new Document("fields.year", 2015));
         iterable.forEach(new Block<Document>() {
